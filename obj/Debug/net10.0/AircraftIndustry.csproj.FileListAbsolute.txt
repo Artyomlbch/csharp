@@ -1,0 +1,14 @@
+/Users/artyomlbch/Desktop/csharp/AircraftIndustry/bin/Debug/net10.0/AircraftIndustry
+/Users/artyomlbch/Desktop/csharp/AircraftIndustry/bin/Debug/net10.0/AircraftIndustry.deps.json
+/Users/artyomlbch/Desktop/csharp/AircraftIndustry/bin/Debug/net10.0/AircraftIndustry.runtimeconfig.json
+/Users/artyomlbch/Desktop/csharp/AircraftIndustry/bin/Debug/net10.0/AircraftIndustry.dll
+/Users/artyomlbch/Desktop/csharp/AircraftIndustry/bin/Debug/net10.0/AircraftIndustry.pdb
+/Users/artyomlbch/Desktop/csharp/AircraftIndustry/obj/Debug/net10.0/AircraftIndustry.GeneratedMSBuildEditorConfig.editorconfig
+/Users/artyomlbch/Desktop/csharp/AircraftIndustry/obj/Debug/net10.0/AircraftIndustry.AssemblyInfoInputs.cache
+/Users/artyomlbch/Desktop/csharp/AircraftIndustry/obj/Debug/net10.0/AircraftIndustry.AssemblyInfo.cs
+/Users/artyomlbch/Desktop/csharp/AircraftIndustry/obj/Debug/net10.0/AircraftIndustry.csproj.CoreCompileInputs.cache
+/Users/artyomlbch/Desktop/csharp/AircraftIndustry/obj/Debug/net10.0/AircraftIndustry.dll
+/Users/artyomlbch/Desktop/csharp/AircraftIndustry/obj/Debug/net10.0/refint/AircraftIndustry.dll
+/Users/artyomlbch/Desktop/csharp/AircraftIndustry/obj/Debug/net10.0/AircraftIndustry.pdb
+/Users/artyomlbch/Desktop/csharp/AircraftIndustry/obj/Debug/net10.0/AircraftIndustry.genruntimeconfig.cache
+/Users/artyomlbch/Desktop/csharp/AircraftIndustry/obj/Debug/net10.0/ref/AircraftIndustry.dll
