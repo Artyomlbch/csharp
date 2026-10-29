@@ -13,7 +13,7 @@ public abstract class Airplane : Aircraft
     // минимальная длина взлетно-посадочной полосы
     public double RequiredRunwayLengthM { get; }
 
-    public override string Category => "Airplane";
+    public override string Category => "Самолёт";
 
     protected Airplane(
         string registrationNumber,
@@ -39,6 +39,6 @@ public abstract class Airplane : Aircraft
 
     public override string ToString()
     {
-        return $"Airplane (wingspan {WingspanM:F1} m, required runway length {RequiredRunwayLengthM:N0} m)";
+        return base.ToString() + $", размах {WingspanM:F1} м, ВПП от {RequiredRunwayLengthM:N0} м";
     }
 }

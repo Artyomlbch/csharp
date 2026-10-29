@@ -1,28 +1,28 @@
 namespace AircraftIndustry.Storage;
 
-// Заявка на выполнение рейса. Описывает требования,
-// которым должен удовлетворять подбираемый летательный аппарат.
+// заявка на выполнение рейса. Описывает требования,
+// которым должен удовлетворять подбираемый летательный аппарат
 public class FlightRequest
 {
-    // Пункт вылета.
+    // пункт вылета
     public string DeparturePoint { get; }
 
-    // Пункт назначения.
+    // пункт назначения
     public string Destination { get; }
 
-    // Расстояние маршрута, км.
+    // расстояние маршрута, км
     public double DistanceKm { get; }
 
-    // Требуемое количество пассажирских мест. Ноль, если рейс грузовой.
+    // требуемое количество пассажирских мест. Ноль, если рейс грузовой
     public int RequiredSeats { get; }
 
-    // Требуемая грузоподъёмность, кг. Ноль, если рейс пассажирский.
+    // требуемая грузоподъёмность, кг. Ноль, если рейс пассажирский
     public double RequiredPayloadKg { get; }
 
-    // Длина доступной взлётно-посадочной полосы, м.
+    // длина доступной взлётно-посадочной полосы, м
     public double AvailableRunwayLengthM { get; }
 
-    // Создаёт заявку на рейс.
+    // создаёт заявку на рейс
     public FlightRequest(
         string departurePoint,
         string destination,
@@ -45,7 +45,7 @@ public class FlightRequest
         AvailableRunwayLengthM = availableRunwayLengthM;
     }
 
-    // Оценивает продолжительность рейса при заданной крейсерской скорости.
+    // оценивает продолжительность рейса при заданной крейсерской скорости
     public double EstimateDurationHours(double cruiseSpeedKmH)
     {
         if (cruiseSpeedKmH <= 0)
@@ -57,7 +57,7 @@ public class FlightRequest
         return DistanceKm / cruiseSpeedKmH;
     }
 
-    // Возвращает строковое представление заявки.
+    // возвращает строковое представление заявки
     public override string ToString() =>
         $"{DeparturePoint} → {Destination}, {DistanceKm:N0} км, " +
         $"мест: {RequiredSeats}, груз: {RequiredPayloadKg:N0} кг";

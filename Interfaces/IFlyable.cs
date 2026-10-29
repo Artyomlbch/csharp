@@ -2,18 +2,18 @@ using System.Runtime.CompilerServices;
 
 namespace AircraftIndustry.Interfaces;
 
-// Any flyable object
+// any flyable object
 public interface IFlyable
 {
-    // Max speed in km/h
+    // max speed in km/h
     double MaxSpeedKmH { get; }
-    // Max flight range in km
+    // max flight range in km
     double MaxRangeKm { get; }
-    // Is vessel in flight
+    // is vessel in flight
     bool IsInFlight { get; }
 
-    // To take off
+    // to take off
     void TakeOff();
-    // To land
+    // to land
     void Land();
 }

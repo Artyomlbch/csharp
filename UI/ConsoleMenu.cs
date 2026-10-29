@@ -4,19 +4,19 @@ using AircraftIndustry.Storage;
 
 namespace AircraftIndustry.UI;
 
-// Консольный интерфейс взаимодействия с ангаром.
+// консольный интерфейс взаимодействия с ангаром
 public class ConsoleMenu
 {
-    // Ангар, с которым работает пользователь.
+    // ангар, с которым работает пользователь
     private readonly Hangar _hangar;
 
-    // Создаёт меню для работы с заданным ангаром.
+    // создаёт меню для работы с заданным ангаром
     public ConsoleMenu(Hangar hangar)
     {
         _hangar = hangar;
     }
 
-    // Запускает главный цикл работы приложения.
+    // запускает главный цикл работы приложения
     public void Run()
     {
         bool exitRequested = false;
@@ -64,7 +64,7 @@ public class ConsoleMenu
         }
     }
 
-    // Выводит список доступных команд.
+    // выводит список доступных команд
     private void PrintMenu()
     {
         Console.WriteLine(_hangar);
@@ -79,7 +79,7 @@ public class ConsoleMenu
         Console.Write("Выберите пункт: ");
     }
 
-    // Выводит полный список аппаратов ангара.
+    // выводит полный список аппаратов ангара
     private void ShowFleet()
     {
         Console.WriteLine("Парк техники:");
@@ -90,8 +90,8 @@ public class ConsoleMenu
         }
     }
 
-    // Демонстрирует полиморфное поведение: одинаковый вызов
-    // приводит к выполнению реализации конкретного типа техники.
+    // демонстрирует полиморфное поведение: одинаковый вызов
+    // приводит к выполнению реализации конкретного типа техники
     private void ShowPolymorphismDemo()
     {
         foreach (Aircraft aircraft in _hangar.Fleet)
@@ -122,7 +122,7 @@ public class ConsoleMenu
         }
     }
 
-    // Выводит стоимость лётного часа по каждому аппарату и суммарно.
+    // выводит стоимость лётного часа по каждому аппарату и суммарно
     private void ShowFlightHourCosts()
     {
         Console.WriteLine("Стоимость лётного часа:");
@@ -136,7 +136,7 @@ public class ConsoleMenu
         Console.WriteLine($"{"Итого по парку",-28} {_hangar.CalculateTotalFleetHourCost(),12:N2} у.е.");
     }
 
-    // Выполняет поиск техники по названию производителя.
+    // выполняет поиск техники по названию производителя
     private void SearchByManufacturer()
     {
         Console.Write("Введите название производителя: ");
@@ -162,7 +162,7 @@ public class ConsoleMenu
         }
     }
 
-    // Демонстрирует подбор техники под заявку на рейс.
+    // демонстрирует подбор техники под заявку на рейс
     private void ProcessFlightRequest()
     {
         FlightRequest passengerRequest = new(
@@ -186,7 +186,7 @@ public class ConsoleMenu
         ShowRequestResult(cargoRequest);
     }
 
-    // Выводит результат подбора техники под конкретную заявку.
+    // выводит результат подбора техники под конкретную заявку
     private void ShowRequestResult(FlightRequest request)
     {
         Console.WriteLine($"Заявка: {request}");
@@ -209,7 +209,7 @@ public class ConsoleMenu
         }
     }
 
-    // Демонстрирует учёт наработки и техническое обслуживание.
+    // демонстрирует учёт наработки и техническое обслуживание
     private void ShowMaintenanceDemo()
     {
         Console.WriteLine("Регистрация налёта:");
@@ -250,7 +250,7 @@ public class ConsoleMenu
         }
     }
 
-    // Выводит статистику по парку техники.
+    // выводит статистику по парку техники
     private void ShowStatistics()
     {
         Console.WriteLine("Статистика парка:");

@@ -3,8 +3,8 @@ using AircraftIndustry.Interfaces;
 
 namespace AircraftIndustry.Domain;
 
-// Базовая абстракция летательного аппарата.
-// Определяет общее состояние и поведение самолётов и вертолётов.
+// базовая абстракция летательного аппарата
+// определяет общее состояние и поведение самолётов и вертолётов
 public abstract class Aircraft : IFlyable, IMaintainable
 {
     private const int MaintenanceIntervalHours = 500;
@@ -107,7 +107,7 @@ public abstract class Aircraft : IFlyable, IMaintainable
 
     public bool CanCoverDistance(double distanceKm) => distanceKm <= MaxRangeKm;
 
-    // Регистрирует проведённое техническое обслуживание.
+    // регистрирует проведённое техническое обслуживание
     public void PerformMaintenance(MaintenanceRecord record)
     {
         _maintenanceHistory.Add(record);

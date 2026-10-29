@@ -3,32 +3,32 @@ using AircraftIndustry.Domain;
 
 namespace AircraftIndustry.Storage;
 
-// Ангар — место хранения и обслуживания парка летательных аппаратов.
-// Обеспечивает регистрацию техники, поиск и подбор машин под заявки.
+// ангар — место хранения и обслуживания парка летательных аппаратов
+// обеспечивает регистрацию техники, поиск и подбор машин под заявки
 public class Hangar
 {
-    // Парк летательных аппаратов. Изменяется только методами класса.
+    // парк летательных аппаратов. Изменяется только методами класса
     private readonly List<Aircraft> _fleet = new();
 
-    // Название ангара.
+    // название ангара
     public string Name { get; }
 
-    // Аэродром базирования.
+    // аэродром базирования
     public string Location { get; }
 
-    // Вместимость ангара, машино-мест.
+    // вместимость ангара, машино-мест
     public int Capacity { get; }
 
-    // Количество размещённых аппаратов.
+    // количество размещённых аппаратов
     public int OccupiedPlaces => _fleet.Count;
 
-    // Количество свободных машино-мест.
+    // количество свободных машино-мест
     public int FreePlaces => Capacity - _fleet.Count;
 
-    // Парк аппаратов, доступный только для чтения.
+    // парк аппаратов, доступный только для чтения
     public IReadOnlyList<Aircraft> Fleet => _fleet;
 
-    // Создаёт ангар с заданными параметрами.
+    // создаёт ангар с заданными параметрами
     public Hangar(string name, string location, int capacity)
     {
         if (capacity <= 0)
@@ -42,7 +42,7 @@ public class Hangar
         Capacity = capacity;
     }
 
-    // Регистрирует летательный аппарат в ангаре.
+    // регистрирует летательный аппарат в ангаре
     public bool Register(Aircraft aircraft)
     {
         if (FreePlaces == 0)
@@ -65,7 +65,7 @@ public class Hangar
         return true;
     }
 
-    // Снимает аппарат с регистрации по бортовому номеру.
+    // снимает аппарат с регистрации по бортовому номеру
     public bool Remove(string registrationNumber)
     {
         Aircraft? aircraft = FindByRegistration(registrationNumber);
@@ -79,19 +79,19 @@ public class Hangar
         return true;
     }
 
-    // Ищет аппарат по бортовому номеру.
+    // ищет аппарат по бортовому номеру
     public Aircraft? FindByRegistration(string registrationNumber) =>
         _fleet.FirstOrDefault(a => a.RegistrationNumber == registrationNumber);
 
-    // Возвращает все аппараты заданного производителя.
+    // возвращает все аппараты заданного производителя
     public List<Aircraft> FindByManufacturer(string manufacturerName) =>
         _fleet.Where(a => a.Manufacturer.Name == manufacturerName).ToList();
 
-    // Возвращает все аппараты, требующие технического обслуживания.
+    // возвращает все аппараты, требующие технического обслуживания
     public List<Aircraft> GetAircraftNeedingMaintenance() =>
         _fleet.Where(a => a.NeedsMaintenance).ToList();
 
-    // Подбирает аппараты, способные выполнить заданную заявку на рейс.
+    // подбирает аппараты, способные выполнить заданную заявку на рейс
     public List<Aircraft> FindSuitableAircraft(FlightRequest request)
     {
         List<Aircraft> suitable = new();
@@ -129,7 +129,7 @@ public class Hangar
         return suitable;
     }
 
-    // Определяет, способен ли аппарат перевезти груз заданной массы.
+    // определяет, способен ли аппарат перевезти груз заданной массы
     private static bool CanCarryPayload(Aircraft aircraft, double payloadKg) => aircraft switch
     {
         CargoAirplane cargo => cargo.MaxPayloadKg >= payloadKg,
@@ -138,20 +138,20 @@ public class Hangar
         _ => false
     };
 
-    // Рассчитывает суммарную стоимость лётного часа всего парка.
+    // рассчитывает суммарную стоимость лётного часа всего парка
     public decimal CalculateTotalFleetHourCost() =>
         _fleet.Sum(a => a.CalculateFlightHourCost());
 
-    // Возвращает аппарат с наибольшей дальностью полёта.
+    // возвращает аппарат с наибольшей дальностью полёта
     public Aircraft? GetLongestRangeAircraft() =>
         _fleet.OrderByDescending(a => a.MaxRangeKm).FirstOrDefault();
 
-    // Группирует парк по категориям техники.
+    // группирует парк по категориям техники
     public Dictionary<string, int> GetFleetStatistics() =>
         _fleet.GroupBy(a => a.Category)
               .ToDictionary(group => group.Key, group => group.Count());
 
-    // Возвращает строковое представление ангара.
+    // возвращает строковое представление ангара
     public override string ToString() =>
         $"Ангар «{Name}» ({Location}): занято {OccupiedPlaces} из {Capacity} мест";
 }

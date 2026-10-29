@@ -3,11 +3,11 @@ using AircraftIndustry.Domain;
 
 namespace AircraftIndustry.Storage;
 
-// Фабрика создания демонстрационного парка летательных аппаратов.
-// Отделяет наполнение данными от бизнес-логики ангара.
+// фабрика создания демонстрационного парка летательных аппаратов
+// отделяет наполнение данными от бизнес-логики ангара
 public static class FleetFactory
 {
-    // Создаёт ангар, заполненный демонстрационным парком техники.
+    // создаёт ангар, заполненный демонстрационным парком техники
     public static Hangar CreateDemoHangar()
     {
         Hangar hangar = new("Северный", "Аэродром Румбула", 12);
@@ -20,7 +20,7 @@ public static class FleetFactory
         return hangar;
     }
 
-    // Формирует список демонстрационных летательных аппаратов.
+    // формирует список демонстрационных летательных аппаратов
     public static List<Aircraft> CreateDemoFleet()
     {
         Manufacturer boeing = new("Boeing", "США", 1916);

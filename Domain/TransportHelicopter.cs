@@ -2,22 +2,22 @@ using AircraftIndustry.Components;
 
 namespace AircraftIndustry.Domain;
 
-// Транспортный вертолёт для перевозки грузов и личного состава.
+// транспортный вертолёт для перевозки грузов и личного состава
 public class TransportHelicopter : Helicopter
 {
-    // Базовая ставка стоимости лётного часа, у.е.
+    // базовая ставка стоимости лётного часа, у.е
     private const decimal BaseHourRate = 3800m;
 
-    // Надбавка за каждую тонну грузоподъёмности, у.е.
+    // надбавка за каждую тонну грузоподъёмности, у.е
     private const decimal RatePerTon = 210m;
 
-    // Максимальная масса груза в кабине, кг.
+    // максимальная масса груза в кабине, кг
     public double MaxPayloadKg { get; }
 
-    // Максимальная масса груза на внешней подвеске, кг.
+    // максимальная масса груза на внешней подвеске, кг
     public double ExternalSlingCapacityKg { get; }
 
-    // Создаёт транспортный вертолёт.
+    // создаёт транспортный вертолёт
     public TransportHelicopter(
         string registrationNumber,
         string model,
@@ -38,7 +38,7 @@ public class TransportHelicopter : Helicopter
         ExternalSlingCapacityKg = externalSlingCapacityKg;
     }
 
-    // Рассчитывает стоимость лётного часа исходя из суммарной грузоподъёмности.
+    // рассчитывает стоимость лётного часа исходя из суммарной грузоподъёмности
     public override decimal CalculateFlightHourCost()
     {
         decimal totalCapacityTons = (decimal)((MaxPayloadKg + ExternalSlingCapacityKg) / 1000);
@@ -47,12 +47,12 @@ public class TransportHelicopter : Helicopter
         return decimal.Round(cost, 2);
     }
 
-    // Возвращает описание назначения транспортного вертолёта.
+    // возвращает описание назначения транспортного вертолёта
     public override string DescribePurpose() =>
         $"Транспортный вертолёт: {MaxPayloadKg / 1000:F1} т в кабине, " +
         $"{ExternalSlingCapacityKg / 1000:F1} т на внешней подвеске.";
 
-    // Определяет способ перевозки груза заданной массы.
+    // определяет способ перевозки груза заданной массы
     public string DetermineTransportMethod(double weightKg)
     {
         if (weightKg <= MaxPayloadKg)

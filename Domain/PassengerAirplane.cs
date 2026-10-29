@@ -2,22 +2,22 @@ using AircraftIndustry.Components;
 
 namespace AircraftIndustry.Domain;
 
-// Пассажирский самолёт, предназначенный для перевозки людей.
+// пассажирский самолёт, предназначенный для перевозки людей
 public class PassengerAirplane : Airplane
 {
-    // Базовая ставка стоимости лётного часа, у.е.
+    // базовая ставка стоимости лётного часа, у.е
     private const decimal BaseHourRate = 4500m;
 
-    // Надбавка за каждое пассажирское место, у.е.
+    // надбавка за каждое пассажирское место, у.е
     private const decimal RatePerSeat = 12m;
 
-    // Количество пассажирских мест.
+    // количество пассажирских мест
     public int SeatCount { get; }
 
-    // Наличие салона бизнес-класса.
+    // наличие салона бизнес-класса
     public bool HasBusinessClass { get; }
 
-    // Создаёт пассажирский самолёт.
+    // создаёт пассажирский самолёт
     public PassengerAirplane(
         string registrationNumber,
         string model,
@@ -38,8 +38,8 @@ public class PassengerAirplane : Airplane
         HasBusinessClass = hasBusinessClass;
     }
 
-    // Рассчитывает стоимость лётного часа исходя из вместимости салона.
-    // Наличие бизнес-класса увеличивает стоимость обслуживания на 15%.
+    // рассчитывает стоимость лётного часа исходя из вместимости салона
+    // наличие бизнес-класса увеличивает стоимость обслуживания на 15%
     public override decimal CalculateFlightHourCost()
     {
         decimal cost = BaseHourRate + SeatCount * RatePerSeat;
@@ -52,12 +52,12 @@ public class PassengerAirplane : Airplane
         return decimal.Round(cost, 2);
     }
 
-    // Возвращает описание назначения пассажирского самолёта.
+    // возвращает описание назначения пассажирского самолёта
     public override string DescribePurpose() =>
         $"Пассажирский самолёт на {SeatCount} мест" +
         (HasBusinessClass ? " с салоном бизнес-класса." : ".");
 
-    // Рассчитывает выручку рейса при заданной загрузке и цене билета.
+    // рассчитывает выручку рейса при заданной загрузке и цене билета
     public decimal CalculateRevenue(double loadFactor, decimal ticketPrice)
     {
         if (loadFactor is < 0 or > 1)

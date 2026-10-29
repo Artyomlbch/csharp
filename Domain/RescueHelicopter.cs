@@ -2,23 +2,21 @@ using AircraftIndustry.Components;
 
 namespace AircraftIndustry.Domain;
 
-/// <summary>
-/// Поисково-спасательный вертолёт.
-/// </summary>
+// поисково-спасательный вертолёт
 public class RescueHelicopter : Helicopter
 {
-    // Базовая ставка стоимости лётного часа, у.е.
+    // базовая ставка стоимости лётного часа, у.е
     private const decimal BaseHourRate = 4100m;
-    // Надбавка за каждое место для пострадавших, у.e
+    // надбавка за каждое место для пострадавших, у.e
     private const decimal RatePerStretcher = 150m;
 
-    // Количество мест для носилок
+    // количество мест для носилок
     public int StretcherCount { get; }
 
-    // Наличие спасательной лебёдки
+    // наличие спасательной лебёдки
     public bool HasRescueHoist { get; }
 
-    // Наличие оборудования для ночных полётов.
+    // наличие оборудования для ночных полётов
     public bool HasNightVisionEquipment { get; }
 
     public RescueHelicopter(
@@ -44,8 +42,8 @@ public class RescueHelicopter : Helicopter
     }
 
 
-    // Рассчитывает стоимость лётного часа с учётом спасательного оборудования.
-    // Стоимость лётного часа, у.е.
+    // рассчитывает стоимость лётного часа с учётом спасательного оборудования
+    // стоимость лётного часа, у.е
     public override decimal CalculateFlightHourCost()
     {
         decimal cost = BaseHourRate + StretcherCount * RatePerStretcher;
@@ -63,16 +61,12 @@ public class RescueHelicopter : Helicopter
         return decimal.Round(cost, 2);
     }
 
-    // Возвращает описание назначения спасательного вертолёта.
+    // возвращает описание назначения спасательного вертолёта
     public override string DescribePurpose() =>
         $"Поисково-спасательный вертолёт на {StretcherCount} носилок" +
         (HasRescueHoist ? " с лебёдкой." : ".");
 
-    /// <summary>
-    /// Проверяет готовность к выполнению спасательной операции в заданных условиях.
-    /// <param name="isNightTime">Признак ночного времени суток.</param>
-    /// <param name="requiresHoisting">Требуется ли подъём лебёдкой.</param>
-    /// <returns>true, если вертолёт оснащён для таких условий.</returns>
+    // проверяет готовность к выполнению спасательной операции в заданных условиях
     public bool IsReadyForMission(bool isNightTime, bool requiresHoisting)
     {
         if (isNightTime && !HasNightVisionEquipment)

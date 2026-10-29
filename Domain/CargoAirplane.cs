@@ -2,25 +2,25 @@ using AircraftIndustry.Components;
 
 namespace AircraftIndustry.Domain;
 
-// Грузовой самолёт, предназначенный для перевозки грузов.
+// грузовой самолёт, предназначенный для перевозки грузов
 public class CargoAirplane : Airplane
 {
-    // Базовая ставка стоимости лётного часа, у.е.
+    // базовая ставка стоимости лётного часа, у.е
     private const decimal BaseHourRate = 5200m;
 
-    // Надбавка за каждую тонну грузоподъёмности, у.е.
+    // надбавка за каждую тонну грузоподъёмности, у.е
     private const decimal RatePerTon = 95m;
 
-    // Максимальная масса перевозимого груза, кг.
+    // максимальная масса перевозимого груза, кг
     public double MaxPayloadKg { get; }
 
-    // Объём грузового отсека, куб. м.
+    // объём грузового отсека, куб. м
     public double CargoBayVolumeM3 { get; }
 
-    // Наличие грузовой рампы для самопогрузки.
+    // наличие грузовой рампы для самопогрузки
     public bool HasLoadingRamp { get; }
 
-    // Создаёт грузовой самолёт.
+    // создаёт грузовой самолёт
     public CargoAirplane(
         string registrationNumber,
         string model,
@@ -43,7 +43,7 @@ public class CargoAirplane : Airplane
         HasLoadingRamp = hasLoadingRamp;
     }
 
-    // Рассчитывает стоимость лётного часа исходя из грузоподъёмности.
+    // рассчитывает стоимость лётного часа исходя из грузоподъёмности
     public override decimal CalculateFlightHourCost()
     {
         decimal payloadTons = (decimal)(MaxPayloadKg / 1000);
@@ -52,12 +52,12 @@ public class CargoAirplane : Airplane
         return decimal.Round(cost, 2);
     }
 
-    // Возвращает описание назначения грузового самолёта.
+    // возвращает описание назначения грузового самолёта
     public override string DescribePurpose() =>
         $"Грузовой самолёт грузоподъёмностью {MaxPayloadKg / 1000:F1} т " +
         $"и объёмом отсека {CargoBayVolumeM3:N0} куб. м.";
 
-    // Проверяет возможность размещения груза заданной массы и объёма.
+    // проверяет возможность размещения груза заданной массы и объёма
     public bool CanCarry(double weightKg, double volumeM3) =>
         weightKg <= MaxPayloadKg && volumeM3 <= CargoBayVolumeM3;
 }
