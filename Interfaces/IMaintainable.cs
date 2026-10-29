@@ -2,18 +2,14 @@ using AircraftIndustry.Components;
 
 namespace AircraftIndustry.Interfaces;
 
-/// <summary>
-/// Описывает объект, подлежащий техническому обслуживанию.
-/// </summary>
+// Описывает объект, подлежащий техническому обслуживанию.
 public interface IMaintainable
 {
-    /// <summary>История проведённых обслуживаний.</summary>
+    // История проведённых обслуживаний.
     IReadOnlyList<MaintenanceRecord> MaintenanceHistory { get; }
 
     bool NeedsMaintenance { get; }
 
-    /// <summary>
-    /// Регистрирует проведённое техническое обслуживание.
-    /// </summary>
+    // Регистрирует проведённое техническое обслуживание.
     void PerformMaintenance(MaintenanceRecord record);
 }

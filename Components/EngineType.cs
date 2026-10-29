@@ -1,14 +1,14 @@
 namespace AircraftIndustry.Components;
 
-/// <summary> тип авиационного двигателя </summary>
+// тип авиационного двигателя
 public enum EngineType
 {
-    /// <summary> турбовентиляторный (пассажирские и грузовые самолеты) </summary>
+    // турбовентиляторный (пассажирские и грузовые самолеты)
     Turbofan,
-    /// <summary> турбовинотовой </summary>
+    // турбовинотовой
     Turboprop,
-    /// <summary> турбовальный (вертолеты) </summary>
+    // турбовальный (вертолеты)
     Turboshaft,
-    /// <summary> поршневой </summary>
+    // поршневой
     Piston
 }

@@ -4,26 +4,19 @@ using AircraftIndustry.Storage;
 
 namespace AircraftIndustry.UI;
 
-/// <summary>
-/// Консольный интерфейс взаимодействия с ангаром.
-/// </summary>
+// Консольный интерфейс взаимодействия с ангаром.
 public class ConsoleMenu
 {
-    /// <summary>Ангар, с которым работает пользователь.</summary>
+    // Ангар, с которым работает пользователь.
     private readonly Hangar _hangar;
 
-    /// <summary>
-    /// Создаёт меню для работы с заданным ангаром.
-    /// </summary>
-    /// <param name="hangar">Ангар с парком техники.</param>
+    // Создаёт меню для работы с заданным ангаром.
     public ConsoleMenu(Hangar hangar)
     {
         _hangar = hangar;
     }
 
-    /// <summary>
-    /// Запускает главный цикл работы приложения.
-    /// </summary>
+    // Запускает главный цикл работы приложения.
     public void Run()
     {
         bool exitRequested = false;
@@ -71,29 +64,25 @@ public class ConsoleMenu
         }
     }
 
-    /// <summary>
-    /// Выводит список доступных команд.
-    /// </summary>
+    // Выводит список доступных команд.
     private void PrintMenu()
     {
-        Console.WriteLine("=== " + _hangar + " ===");
-        Console.WriteLine("1 — Показать парк техники");
-        Console.WriteLine("2 — Демонстрация полиморфизма");
-        Console.WriteLine("3 — Стоимость лётного часа");
-        Console.WriteLine("4 — Поиск по производителю");
-        Console.WriteLine("5 — Подбор техники под заявку");
-        Console.WriteLine("6 — Наработка и техобслуживание");
-        Console.WriteLine("7 — Статистика парка");
-        Console.WriteLine("0 — Выход");
+        Console.WriteLine(_hangar);
+        Console.WriteLine("1. Показать парк техники");
+        Console.WriteLine("2. Демонстрация полиморфизма");
+        Console.WriteLine("3. Стоимость лётного часа");
+        Console.WriteLine("4. Поиск по производителю");
+        Console.WriteLine("5. Подбор техники под заявку");
+        Console.WriteLine("6. Наработка и техобслуживание");
+        Console.WriteLine("7. Статистика парка");
+        Console.WriteLine("0. Выход");
         Console.Write("Выберите пункт: ");
     }
 
-    /// <summary>
-    /// Выводит полный список аппаратов ангара.
-    /// </summary>
+    // Выводит полный список аппаратов ангара.
     private void ShowFleet()
     {
-        Console.WriteLine("--- Парк техники ---");
+        Console.WriteLine("Парк техники:");
 
         foreach (Aircraft aircraft in _hangar.Fleet)
         {
@@ -101,21 +90,16 @@ public class ConsoleMenu
         }
     }
 
-    /// <summary>
-    /// Демонстрирует полиморфное поведение: одинаковый вызов
-    /// приводит к выполнению реализации конкретного типа техники.
-    /// </summary>
+    // Демонстрирует полиморфное поведение: одинаковый вызов
+    // приводит к выполнению реализации конкретного типа техники.
     private void ShowPolymorphismDemo()
     {
-        Console.WriteLine("--- Полиморфизм: единый вызов, разные реализации ---");
-
         foreach (Aircraft aircraft in _hangar.Fleet)
         {
             Console.WriteLine($"{aircraft.RegistrationNumber}: {aircraft.DescribePurpose()}");
         }
 
         Console.WriteLine();
-        Console.WriteLine("--- Поведение, специфичное для подтипов ---");
 
         foreach (Aircraft aircraft in _hangar.Fleet)
         {
@@ -133,15 +117,15 @@ public class ConsoleMenu
             }
 
             aircraft.Land();
+
+            Console.WriteLine();
         }
     }
 
-    /// <summary>
-    /// Выводит стоимость лётного часа по каждому аппарату и суммарно.
-    /// </summary>
+    // Выводит стоимость лётного часа по каждому аппарату и суммарно.
     private void ShowFlightHourCosts()
     {
-        Console.WriteLine("--- Стоимость лётного часа ---");
+        Console.WriteLine("Стоимость лётного часа:");
 
         foreach (Aircraft aircraft in _hangar.Fleet)
         {
@@ -149,13 +133,10 @@ public class ConsoleMenu
                 $"{aircraft.Model,-28} {aircraft.CalculateFlightHourCost(),12:N2} у.е.");
         }
 
-        Console.WriteLine(new string('-', 42));
         Console.WriteLine($"{"Итого по парку",-28} {_hangar.CalculateTotalFleetHourCost(),12:N2} у.е.");
     }
 
-    /// <summary>
-    /// Выполняет поиск техники по названию производителя.
-    /// </summary>
+    // Выполняет поиск техники по названию производителя.
     private void SearchByManufacturer()
     {
         Console.Write("Введите название производителя: ");
@@ -181,9 +162,7 @@ public class ConsoleMenu
         }
     }
 
-    /// <summary>
-    /// Демонстрирует подбор техники под заявку на рейс.
-    /// </summary>
+    // Демонстрирует подбор техники под заявку на рейс.
     private void ProcessFlightRequest()
     {
         FlightRequest passengerRequest = new(
@@ -207,10 +186,7 @@ public class ConsoleMenu
         ShowRequestResult(cargoRequest);
     }
 
-    /// <summary>
-    /// Выводит результат подбора техники под конкретную заявку.
-    /// </summary>
-    /// <param name="request">Заявка на рейс.</param>
+    // Выводит результат подбора техники под конкретную заявку.
     private void ShowRequestResult(FlightRequest request)
     {
         Console.WriteLine($"Заявка: {request}");
@@ -233,12 +209,10 @@ public class ConsoleMenu
         }
     }
 
-    /// <summary>
-    /// Демонстрирует учёт наработки и техническое обслуживание.
-    /// </summary>
+    // Демонстрирует учёт наработки и техническое обслуживание.
     private void ShowMaintenanceDemo()
     {
-        Console.WriteLine("--- Регистрация налёта ---");
+        Console.WriteLine("Регистрация налёта:");
 
         Random random = new(42);
 
@@ -253,7 +227,7 @@ public class ConsoleMenu
         }
 
         Console.WriteLine();
-        Console.WriteLine("--- Проведение обслуживания ---");
+        Console.WriteLine("Проведение обслуживания:");
 
         List<Aircraft> needMaintenance = _hangar.GetAircraftNeedingMaintenance();
 
@@ -276,12 +250,10 @@ public class ConsoleMenu
         }
     }
 
-    /// <summary>
-    /// Выводит статистику по парку техники.
-    /// </summary>
+    // Выводит статистику по парку техники.
     private void ShowStatistics()
     {
-        Console.WriteLine("--- Статистика парка ---");
+        Console.WriteLine("Статистика парка:");
 
         foreach (KeyValuePair<string, int> entry in _hangar.GetFleetStatistics())
         {

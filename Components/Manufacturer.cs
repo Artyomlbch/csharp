@@ -1,6 +1,6 @@
 namespace AircraftIndustry.Components;
 
-/// <summary> компания-производитель авиационной техники </summary>
+// компания-производитель авиационной техники
 public class Manufacturer
 {
     public string Name { get; }

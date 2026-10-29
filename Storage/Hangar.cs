@@ -3,39 +3,32 @@ using AircraftIndustry.Domain;
 
 namespace AircraftIndustry.Storage;
 
-/// <summary>
-/// Ангар — место хранения и обслуживания парка летательных аппаратов.
-/// Обеспечивает регистрацию техники, поиск и подбор машин под заявки.
-/// </summary>
+// Ангар — место хранения и обслуживания парка летательных аппаратов.
+// Обеспечивает регистрацию техники, поиск и подбор машин под заявки.
 public class Hangar
 {
-    /// <summary>Парк летательных аппаратов. Изменяется только методами класса.</summary>
+    // Парк летательных аппаратов. Изменяется только методами класса.
     private readonly List<Aircraft> _fleet = new();
 
-    /// <summary>Название ангара.</summary>
+    // Название ангара.
     public string Name { get; }
 
-    /// <summary>Аэродром базирования.</summary>
+    // Аэродром базирования.
     public string Location { get; }
 
-    /// <summary>Вместимость ангара, машино-мест.</summary>
+    // Вместимость ангара, машино-мест.
     public int Capacity { get; }
 
-    /// <summary>Количество размещённых аппаратов.</summary>
+    // Количество размещённых аппаратов.
     public int OccupiedPlaces => _fleet.Count;
 
-    /// <summary>Количество свободных машино-мест.</summary>
+    // Количество свободных машино-мест.
     public int FreePlaces => Capacity - _fleet.Count;
 
-    /// <summary>Парк аппаратов, доступный только для чтения.</summary>
+    // Парк аппаратов, доступный только для чтения.
     public IReadOnlyList<Aircraft> Fleet => _fleet;
 
-    /// <summary>
-    /// Создаёт ангар с заданными параметрами.
-    /// </summary>
-    /// <param name="name">Название ангара.</param>
-    /// <param name="location">Аэродром базирования.</param>
-    /// <param name="capacity">Вместимость, машино-мест.</param>
+    // Создаёт ангар с заданными параметрами.
     public Hangar(string name, string location, int capacity)
     {
         if (capacity <= 0)
@@ -49,11 +42,7 @@ public class Hangar
         Capacity = capacity;
     }
 
-    /// <summary>
-    /// Регистрирует летательный аппарат в ангаре.
-    /// </summary>
-    /// <param name="aircraft">Размещаемый аппарат.</param>
-    /// <returns>true, если аппарат успешно размещён.</returns>
+    // Регистрирует летательный аппарат в ангаре.
     public bool Register(Aircraft aircraft)
     {
         if (FreePlaces == 0)
@@ -76,11 +65,7 @@ public class Hangar
         return true;
     }
 
-    /// <summary>
-    /// Снимает аппарат с регистрации по бортовому номеру.
-    /// </summary>
-    /// <param name="registrationNumber">Бортовой номер.</param>
-    /// <returns>true, если аппарат был найден и удалён.</returns>
+    // Снимает аппарат с регистрации по бортовому номеру.
     public bool Remove(string registrationNumber)
     {
         Aircraft? aircraft = FindByRegistration(registrationNumber);
@@ -94,34 +79,19 @@ public class Hangar
         return true;
     }
 
-    /// <summary>
-    /// Ищет аппарат по бортовому номеру.
-    /// </summary>
-    /// <param name="registrationNumber">Бортовой номер.</param>
-    /// <returns>Найденный аппарат или null.</returns>
+    // Ищет аппарат по бортовому номеру.
     public Aircraft? FindByRegistration(string registrationNumber) =>
         _fleet.FirstOrDefault(a => a.RegistrationNumber == registrationNumber);
 
-    /// <summary>
-    /// Возвращает все аппараты заданного производителя.
-    /// </summary>
-    /// <param name="manufacturerName">Название производителя.</param>
-    /// <returns>Список подходящих аппаратов.</returns>
+    // Возвращает все аппараты заданного производителя.
     public List<Aircraft> FindByManufacturer(string manufacturerName) =>
         _fleet.Where(a => a.Manufacturer.Name == manufacturerName).ToList();
 
-    /// <summary>
-    /// Возвращает все аппараты, требующие технического обслуживания.
-    /// </summary>
-    /// <returns>Список аппаратов с превышенной наработкой.</returns>
+    // Возвращает все аппараты, требующие технического обслуживания.
     public List<Aircraft> GetAircraftNeedingMaintenance() =>
         _fleet.Where(a => a.NeedsMaintenance).ToList();
 
-    /// <summary>
-    /// Подбирает аппараты, способные выполнить заданную заявку на рейс.
-    /// </summary>
-    /// <param name="request">Заявка на рейс.</param>
-    /// <returns>Список подходящих аппаратов.</returns>
+    // Подбирает аппараты, способные выполнить заданную заявку на рейс.
     public List<Aircraft> FindSuitableAircraft(FlightRequest request)
     {
         List<Aircraft> suitable = new();
@@ -159,12 +129,7 @@ public class Hangar
         return suitable;
     }
 
-    /// <summary>
-    /// Определяет, способен ли аппарат перевезти груз заданной массы.
-    /// </summary>
-    /// <param name="aircraft">Проверяемый аппарат.</param>
-    /// <param name="payloadKg">Масса груза, кг.</param>
-    /// <returns>true, если аппарат подходит для перевозки.</returns>
+    // Определяет, способен ли аппарат перевезти груз заданной массы.
     private static bool CanCarryPayload(Aircraft aircraft, double payloadKg) => aircraft switch
     {
         CargoAirplane cargo => cargo.MaxPayloadKg >= payloadKg,
@@ -173,31 +138,20 @@ public class Hangar
         _ => false
     };
 
-    /// <summary>
-    /// Рассчитывает суммарную стоимость лётного часа всего парка.
-    /// </summary>
-    /// <returns>Сумма стоимостей лётного часа всех аппаратов.</returns>
+    // Рассчитывает суммарную стоимость лётного часа всего парка.
     public decimal CalculateTotalFleetHourCost() =>
         _fleet.Sum(a => a.CalculateFlightHourCost());
 
-    /// <summary>
-    /// Возвращает аппарат с наибольшей дальностью полёта.
-    /// </summary>
-    /// <returns>Аппарат с максимальной дальностью или null, если парк пуст.</returns>
+    // Возвращает аппарат с наибольшей дальностью полёта.
     public Aircraft? GetLongestRangeAircraft() =>
         _fleet.OrderByDescending(a => a.MaxRangeKm).FirstOrDefault();
 
-    /// <summary>
-    /// Группирует парк по категориям техники.
-    /// </summary>
-    /// <returns>Словарь: категория — количество аппаратов.</returns>
+    // Группирует парк по категориям техники.
     public Dictionary<string, int> GetFleetStatistics() =>
         _fleet.GroupBy(a => a.Category)
               .ToDictionary(group => group.Key, group => group.Count());
 
-    /// <summary>
-    /// Возвращает строковое представление ангара.
-    /// </summary>
+    // Возвращает строковое представление ангара.
     public override string ToString() =>
         $"Ангар «{Name}» ({Location}): занято {OccupiedPlaces} из {Capacity} мест";
 }

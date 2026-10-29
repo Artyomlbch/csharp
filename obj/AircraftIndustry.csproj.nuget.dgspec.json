@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Artyomlbch\\Desktop\\csharp\\AircraftIndustry.csproj": {}
+    "/Users/artyomlbch/Desktop/csharp/AircraftIndustry/AircraftIndustry.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Artyomlbch\\Desktop\\csharp\\AircraftIndustry.csproj": {
+    "/Users/artyomlbch/Desktop/csharp/AircraftIndustry/AircraftIndustry.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Artyomlbch\\Desktop\\csharp\\AircraftIndustry.csproj",
+        "projectUniqueName": "/Users/artyomlbch/Desktop/csharp/AircraftIndustry/AircraftIndustry.csproj",
         "projectName": "AircraftIndustry",
-        "projectPath": "C:\\Users\\Artyomlbch\\Desktop\\csharp\\AircraftIndustry.csproj",
-        "packagesPath": "C:\\Users\\Artyomlbch\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Artyomlbch\\Desktop\\csharp\\obj\\",
+        "projectPath": "/Users/artyomlbch/Desktop/csharp/AircraftIndustry/AircraftIndustry.csproj",
+        "packagesPath": "/Users/artyomlbch/.nuget/packages/",
+        "outputPath": "/Users/artyomlbch/Desktop/csharp/AircraftIndustry/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Artyomlbch\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/artyomlbch/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -63,7 +61,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.400/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.400/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",

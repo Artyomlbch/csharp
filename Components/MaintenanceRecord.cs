@@ -1,8 +1,6 @@
 namespace AircraftIndustry.Components;
 
-/// <summary>
-/// запись о проведенном техническом обслуживании летательного аппарата
-/// </summary>
+// запись о проведенном техническом обслуживании летательного аппарата
 public class MaintenanceRecord
 {
     public DateTime Date { get; }
