@@ -7,7 +7,7 @@ public class RescueHelicopter : Helicopter
 {
     // базовая ставка стоимости лётного часа, у.е
     private const decimal BaseHourRate = 4100m;
-    // надбавка за каждое место для пострадавших, у.e
+    // надбавка за каждое место для пострадавших, у.е
     private const decimal RatePerStretcher = 150m;
 
     // количество мест для носилок

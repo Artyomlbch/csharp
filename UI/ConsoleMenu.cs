@@ -53,10 +53,10 @@ public class ConsoleMenu
                     break;
                 case "0":
                     exitRequested = true;
-                    Console.WriteLine("Работа завершена.");
+                    Console.WriteLine("Работа завершена");
                     break;
                 default:
-                    Console.WriteLine("Неизвестный пункт меню.");
+                    Console.WriteLine("Неизвестный пункт меню");
                     break;
             }
 
@@ -130,10 +130,10 @@ public class ConsoleMenu
         foreach (Aircraft aircraft in _hangar.Fleet)
         {
             Console.WriteLine(
-                $"{aircraft.Model,-28} {aircraft.CalculateFlightHourCost(),12:N2} у.е.");
+                $"{aircraft.Model,-28} {aircraft.CalculateFlightHourCost(),12:N2} у.е");
         }
 
-        Console.WriteLine($"{"Итого по парку",-28} {_hangar.CalculateTotalFleetHourCost(),12:N2} у.е.");
+        Console.WriteLine($"{"Итого по парку",-28} {_hangar.CalculateTotalFleetHourCost(),12:N2} у.е");
     }
 
     // выполняет поиск техники по названию производителя
@@ -144,7 +144,7 @@ public class ConsoleMenu
 
         if (string.IsNullOrWhiteSpace(name))
         {
-            Console.WriteLine("Название не задано.");
+            Console.WriteLine("Название не задано");
             return;
         }
 
@@ -152,7 +152,7 @@ public class ConsoleMenu
 
         if (found.Count == 0)
         {
-            Console.WriteLine("Техника указанного производителя не найдена.");
+            Console.WriteLine("Техника указанного производителя не найдена");
             return;
         }
 
@@ -195,7 +195,7 @@ public class ConsoleMenu
 
         if (suitable.Count == 0)
         {
-            Console.WriteLine("  Подходящей техники не найдено.");
+            Console.WriteLine("  Подходящей техники не найдено");
             return;
         }
 
@@ -205,7 +205,7 @@ public class ConsoleMenu
             decimal flightCost = aircraft.CalculateFlightHourCost() * (decimal)hours;
 
             Console.WriteLine(
-                $"  {aircraft.Model}: {hours:F1} ч, стоимость рейса {flightCost:N2} у.е.");
+                $"  {aircraft.Model}: {hours:F1} ч, стоимость рейса {flightCost:N2} у.е");
         }
     }
 
@@ -233,7 +233,7 @@ public class ConsoleMenu
 
         if (needMaintenance.Count == 0)
         {
-            Console.WriteLine("Вся техника исправна.");
+            Console.WriteLine("Вся техника исправна");
             return;
         }
 
@@ -257,7 +257,7 @@ public class ConsoleMenu
 
         foreach (KeyValuePair<string, int> entry in _hangar.GetFleetStatistics())
         {
-            Console.WriteLine($"{entry.Key}: {entry.Value} шт.");
+            Console.WriteLine($"{entry.Key}: {entry.Value} шт");
         }
 
         Aircraft? longestRange = _hangar.GetLongestRangeAircraft();

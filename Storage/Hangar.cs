@@ -4,7 +4,7 @@ namespace AircraftIndustry.Storage;
 
 public class Hangar
 {
-    // парк летательных аппаратов. Изменяется только методами класса
+    // парк летательных аппаратов, изменяется только методами класса
     private readonly List<Aircraft> _fleet = new();
 
     // название ангара
