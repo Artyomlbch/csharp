@@ -1,10 +1,7 @@
-using AircraftIndustry.Components;
 using AircraftIndustry.Domain;
 
 namespace AircraftIndustry.Storage;
 
-// ангар — место хранения и обслуживания парка летательных аппаратов
-// обеспечивает регистрацию техники, поиск и подбор машин под заявки
 public class Hangar
 {
     // парк летательных аппаратов. Изменяется только методами класса
@@ -47,7 +44,7 @@ public class Hangar
     {
         if (FreePlaces == 0)
         {
-            Console.WriteLine($"Ангар «{Name}» заполнен, размещение невозможно.");
+            Console.WriteLine($"Ангар \"{Name}\" заполнен, размещение невозможно.");
             return false;
         }
 
@@ -153,5 +150,5 @@ public class Hangar
 
     // возвращает строковое представление ангара
     public override string ToString() =>
-        $"Ангар «{Name}» ({Location}): занято {OccupiedPlaces} из {Capacity} мест";
+        $"Ангар \"{Name}\" ({Location}): занято {OccupiedPlaces} из {Capacity} мест";
 }

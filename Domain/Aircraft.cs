@@ -68,7 +68,7 @@ public abstract class Aircraft : IFlyable, IMaintainable
     public abstract decimal CalculateFlightHourCost();
 
     public virtual string DescribePurpose() =>
-        $"Летательный аппарат общего назначения категории «{Category}».";
+        $"Летательный аппарат общего назначения категории \"{Category}\".";
 
     public void TakeOff()
     {

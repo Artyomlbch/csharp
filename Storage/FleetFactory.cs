@@ -10,7 +10,7 @@ public static class FleetFactory
     // создаёт ангар, заполненный демонстрационным парком техники
     public static Hangar CreateDemoHangar()
     {
-        Hangar hangar = new("Северный", "Аэродром Румбула", 12);
+        Hangar hangar = new("Северный", "Челябинск", 12);
 
         foreach (Aircraft aircraft in CreateDemoFleet())
         {

@@ -59,6 +59,6 @@ public class FlightRequest
 
     // возвращает строковое представление заявки
     public override string ToString() =>
-        $"{DeparturePoint} → {Destination}, {DistanceKm:N0} км, " +
+        $"{DeparturePoint} -> {Destination}, {DistanceKm:N0} км, " +
         $"мест: {RequiredSeats}, груз: {RequiredPayloadKg:N0} кг";
 }
