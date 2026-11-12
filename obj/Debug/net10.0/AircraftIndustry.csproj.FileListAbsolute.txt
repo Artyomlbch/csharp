@@ -1,0 +1,15 @@
+C:\Users\Artyomlbch\Desktop\ccsharp\bin\Debug\net10.0\AircraftIndustry.exe
+C:\Users\Artyomlbch\Desktop\ccsharp\bin\Debug\net10.0\AircraftIndustry.deps.json
+C:\Users\Artyomlbch\Desktop\ccsharp\bin\Debug\net10.0\AircraftIndustry.runtimeconfig.json
+C:\Users\Artyomlbch\Desktop\ccsharp\bin\Debug\net10.0\AircraftIndustry.dll
+C:\Users\Artyomlbch\Desktop\ccsharp\bin\Debug\net10.0\AircraftIndustry.pdb
+C:\Users\Artyomlbch\Desktop\ccsharp\obj\Debug\net10.0\AircraftIndustry.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Artyomlbch\Desktop\ccsharp\obj\Debug\net10.0\AircraftIndustry.AssemblyInfoInputs.cache
+C:\Users\Artyomlbch\Desktop\ccsharp\obj\Debug\net10.0\AircraftIndustry.AssemblyInfo.cs
+C:\Users\Artyomlbch\Desktop\ccsharp\obj\Debug\net10.0\AircraftIndustry.csproj.CoreCompileInputs.cache
+C:\Users\Artyomlbch\Desktop\ccsharp\obj\Debug\net10.0\AircraftIndustry.sourcelink.json
+C:\Users\Artyomlbch\Desktop\ccsharp\obj\Debug\net10.0\AircraftIndustry.dll
+C:\Users\Artyomlbch\Desktop\ccsharp\obj\Debug\net10.0\refint\AircraftIndustry.dll
+C:\Users\Artyomlbch\Desktop\ccsharp\obj\Debug\net10.0\AircraftIndustry.pdb
+C:\Users\Artyomlbch\Desktop\ccsharp\obj\Debug\net10.0\AircraftIndustry.genruntimeconfig.cache
+C:\Users\Artyomlbch\Desktop\ccsharp\obj\Debug\net10.0\ref\AircraftIndustry.dll
